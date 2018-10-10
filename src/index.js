@@ -16,7 +16,8 @@ class drumPad extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="drum-pad">
+
             </div>
         )
     }
@@ -49,7 +50,7 @@ class App extends React.Component {
     render() {
         return (
             <div id="drum-machine">
-
+                <keyPad/>
             </div>
         )
     }
