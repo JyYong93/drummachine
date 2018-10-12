@@ -13,6 +13,16 @@ class drumPad extends React.Component {
         this.state = {
 
         }
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+    handleKeyPress(e) {
+        console.log(e.keyCode);
+        if (e.keyCode === this.props.keyCode) {
+            this.props.play(this.props.value,this.props.audioID);
+        }
+    }
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyPress);
     }
     render() {
         return (
