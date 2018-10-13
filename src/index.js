@@ -90,8 +90,10 @@ class DrumPad extends React.Component {
     }
     render() {
         return (
-            <div className="drum-pad">
-
+            <div className="drum-pad"id={this.props.audioID}
+                 onClick={() => this.props.play(this.props.value,this.props.audioID)}>
+                {this.props.value}
+                <audio id={this.props.value} src={this.props.src} type="audio/mpeg" />
             </div>
         )
     }
@@ -120,12 +122,15 @@ class App extends React.Component {
             keypad: ''
         }
     }
-    // PLAY FUNCTION HERE
+    playBeat = (v) => {
+        const audio = document.getElementById(v);
+        audio.play();
+    }
     render() {
         return (
             <div id="drum-machine">
                 <keyPad/>
-                <div className='padContainer'>
+                <div className='padWrapper'>
                     { beatsList.map((e)=> {
                         return <DrumPad keyPressed={e.key} src={e.src} keyCode={e.keyCode}/>
                     })}
