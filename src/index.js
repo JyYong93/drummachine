@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 
-// Keys QWER/ASDF
+// Keys QWE/ASD/ZXC
 const beatsList = [
     {
         keyCode: 81,
@@ -19,46 +19,51 @@ const beatsList = [
         keyCode: 87,
         keyPressed: 'W',
         id: 'b2',
-        src: ''
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     },
     {
         keyCode: 69,
         keyPressed: 'E',
         id: 'b3',
-        src: ''
-    },
-    {
-        keyCode: 82,
-        keyPressed: 'R',
-        id: 'b4',
-        src: ''
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     },
     {
         keyCode: 65,
         keyPressed: 'A',
-        id: 'b5',
-        src: ''
+        id: 'b4',
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     },
     {
         keyCode: 83,
         keyPressed: 'S',
-        id: 'b6',
-        src: ''
+        id: 'b5',
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     },
     {
         keyCode: 68,
         keyPressed: 'D',
-        id: 'b7',
-        src: ''
+        id: 'b6',
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     },
     {
-        keyCode: 70,
-        keyPressed: 'F',
+        keyCode: 90,
+        keyPressed: 'Z',
+        id: 'b7',
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+    },
+    {
+        keyCode: 88,
+        keyPressed: 'X',
         id: 'b8',
-        src: ''
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+    },
+    {
+        keyCode: 67,
+        keyPressed: 'C',
+        id: 'b9',
+        src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
     }
 ];
-
 
 
 class DrumPad extends React.Component {
@@ -66,43 +71,57 @@ class DrumPad extends React.Component {
         super(props);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
+
     handleKeyPress(e) {
         if (e.keyCode === this.props.keyCode) {
             // call play function
             this.props.play(this.props.value, this.props.id);
         }
     }
+
     componentDidMount() {
         document.addEventListener('keyPressed', this.handleKeyPress);
     }
+
     render() {
         return (
             <div className="drum-pad" id={this.props.id}
-                 onClick={() => this.props.play(this.props.value,this.props.id)}>
+                 onClick={() => this.props.play(this.props.value, this.props.id)}>
                 {this.props.value}
-                <audio id={this.props.value} src={this.props.src}/>
+                <audio className='clip' id={this.props.value} src={this.props.src}/>
             </div>
         )
     }
 }
 
-class App extends React.Component{
-    constructor(props){
+class App extends React.Component {
+    constructor(props) {
         super(props);
+        this.state = {
+            display: ''
+        };
         this.playBeat = this.playBeat.bind(this);
     }
-    playBeat = (val,id) => {
+
+    playBeat = (val, id) => {
         const audio = document.getElementById(val);
         const button = document.getElementById(id);
+        button.style.backgroundColor = 'cyan';
+        setTimeout(() => {
+            button.style.backgroundColor = 'lightblue';
+        }, 150);
         audio.currentTime = 0;
         audio.play();
-    }
+    };
 
-    render(){
+    render() {
         return (
             <div id='drum-machine'>
                 <div className='padWrapper'>
-                    {beatsList.map((item)=>{
+                    <p id="display">
+                        {this.state.display}
+                    </p>
+                    {beatsList.map((item) => {
                         return <DrumPad play={this.playBeat} id={item.id}
                                         value={item.keyPressed} src={item.src} keyCode={item.keyCode}/>
                     })}
@@ -112,7 +131,6 @@ class App extends React.Component{
     }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<App/>, document.getElementById("root"));
 
 serviceWorker.unregister();
