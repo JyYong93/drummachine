@@ -80,7 +80,7 @@ class DrumPad extends React.Component {
     }
 
     componentDidMount() {
-        document.addEventListener('keyPressed', this.handleKeyPress);
+        document.addEventListener('keydown', this.handleKeyPress);
     }
 
     render() {
@@ -101,6 +101,7 @@ class App extends React.Component {
             display: ''
         };
         this.playBeat = this.playBeat.bind(this);
+        this.displayClipName = this.displayClipName.bind(this);
     }
 
     playBeat = (val, id) => {
@@ -112,12 +113,20 @@ class App extends React.Component {
         }, 150);
         audio.currentTime = 0;
         audio.play();
+        this.setState({display: id})
+    };
+
+    displayClipName(name) {
+        this.setState({
+            display: name
+        });
     };
 
     render() {
         return (
             <div id='drum-machine'>
                 <div className='padWrapper'>
+                    <DrumPad updateDisplay={this.displayClipName}/>
                     <p id="display">
                         {this.state.display}
                     </p>
