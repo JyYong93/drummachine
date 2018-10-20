@@ -129,10 +129,12 @@ class App extends React.Component {
                     <p id="display">
                         {this.state.display}
                     </p>
-                    {beatsList.map((item) => {
-                        return <DrumPad play={this.playBeat} id={item.id}
-                                        value={item.keyPressed} src={item.src} keyCode={item.keyCode}/>
-                    })}
+                    <div className='buttons'>
+                        {beatsList.map((item) => {
+                            return <DrumPad play={this.playBeat} id={item.id}
+                                            value={item.keyPressed} src={item.src} keyCode={item.keyCode}/>
+                        })}
+                    </div>
                 </div>
             </div>
         );

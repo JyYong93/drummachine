@@ -21,8 +21,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="187">
+              <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -30,8 +30,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="127" column="41" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="41" />
+            <state relative-caret-position="413">
+              <caret line="145" column="27" lean-forward="true" selection-start-line="145" selection-start-column="27" selection-end-line="145" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            <state relative-caret-position="158">
+              <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -51,15 +51,10 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="260">
               <caret line="19" column="39" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="39" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -70,6 +65,7 @@
       <find>drumpad</find>
       <find>import React from \'react\'\;\nimport ReactDOM from \'react\-dom\'\;\nimport \'\.\/index\.css\'\;\nimport \* as serviceWorker from \'\.\/serviceWorker\'\;\n\n\/\/ If you want your app to work offline and load faster\, you can change\n\/\/ unregister\(\) to register\(\) below\. Note this comes with some pitfalls\.\n\/\/ Learn more about service workers\: http\:\/\/bit\.ly\/CRA\-PWA\n\n\/\/ Keys QWE\/ASD\/ZXC\nconst beatsList \= \[\n    \{\n        keyCode\: 81\,\n        keyPressed\: \'Q\'\,\n        id\: \'b1\'\,\n        src\: \'https\:\/\/s3\.amazonaws\.com\/freecodecamp\/drums\/Heater\-1\.mp3\'\n    \}\,\n    \{\n        keyCode\: 87\,\n        keyPressed\: \'W\'\,\n        id\: \'b2\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 69\,\n        keyPressed\: \'E\'\,\n        id\: \'b3\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 65\,\n        keyPressed\: \'A\'\,\n        id\: \'b5\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 83\,\n        keyPressed\: \'S\'\,\n        id\: \'b6\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 68\,\n        keyPressed\: \'D\'\,\n        id\: \'b7\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 90\,\n        keyPressed\: \'Z\'\,\n        id\: \'b8\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 88\,\n        keyPressed\: \'X\'\,\n        id\: \'b8\'\,\n        src\: \'\'\n    \}\,\n    \{\n        keyCode\: 67\,\n        keyPressed\: \'C\'\,\n        id\: \'b8\'\,\n        src\: \'\'\n    \}\n\]\;\n\n\n\nclass DrumPad extends React\.Component \{\n    constructor\(props\) \{\n        super\(props\)\;\n        this\.handleKeyPress \= this\.handleKeyPress\.bind\(this\)\;\n    \}\n    handleKeyPress\(e\) \{\n        if \(e\.keyCode \=\=\= this\.props\.keyCode\) \{\n            \/\/ call play function\n            this\.props\.play\(this\.props\.value\, this\.props\.id\)\;\n        \}\n    \}\n    componentDidMount\(\) \{\n        document\.addEventListener\(\'keyPressed\'\, this\.handleKeyPress\)\;\n    \}\n    render\(\) \{\n        return \(\n            \&lt;div className\=\&quot;drum\-pad\&quot; id\=\{this\.props\.id\}\n                 onClick\=\{\(\) \=\&gt; this\.props\.play\(this\.props\.value\,this\.props\.id\)\}\&gt;\n                \{this\.props\.value\}\n                \&lt;audio id\=\{this\.props\.value\} src\=\{this\.props\.src\}\/\&gt;\n            \&lt;\/div\&gt;\n        \)\n    \}\n\}\n\nclass App extends React\.Component\{\n    constructor\(props\)\{\n        super\(props\)\;\n        this\.playBeat \= this\.playBeat\.bind\(this\)\;\n    \}\n    playBeat \= \(val\,id\) \=\&gt; \{\n        const audio \= document\.getElementById\(val\)\;\n        const button \= document\.getElementById\(id\)\;\n        audio\.currentTime \= 0\;\n        audio\.play\(\)\;\n    \}\n\n    render\(\)\{\n        return \(\n            \&lt;div id\=\'drum\-machine\'\&gt;\n                \&lt;div className\=\'padWrapper\'\&gt;\n                    \{beatsList\.map\(\(item\)\=\&gt;\{\n                        return \&lt;DrumPad play\=\{this\.playBeat\} id\=\{item\.id\}\n                                        value\=\{item\.keyPressed\} src\=\{item\.src\} keyCode\=\{item\.keyCode\}\/\&gt;\n                    \}\)\}\n                \&lt;\/div\&gt;\n            \&lt;\/div\&gt;\n        \)\;\n    \}\n\}\n\nReactDOM\.render\(\&lt;App \/\&gt;\, document\.getElementById\(\&quot;root\&quot;\)\)\;\n\nserviceWorker\.unregister\(\)\;</find>
       <find>root</find>
+      <find>drum-pad</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,9 +98,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="632" />
+    <option name="x" value="633" />
+    <option name="y" value="12" />
     <option name="width" value="1294" />
-    <option name="height" value="1004" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,7 +177,7 @@
       <workItem from="1539666162185" duration="624000" />
       <workItem from="1539877282325" duration="1740000" />
       <workItem from="1539964767281" duration="4778000" />
-      <workItem from="1540048205429" duration="2976000" />
+      <workItem from="1540048205429" duration="8844000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1538927760030</created>
@@ -252,26 +249,33 @@
       <option name="project" value="LOCAL" />
       <updated>1539972428899</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updated user stories &amp; added css">
+      <created>1540051203710</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1540051203710</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32057000" />
+    <option name="totallyTimeSpent" value="37925000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="632" y="0" width="1294" height="1004" extended-state="0" />
+    <frame x="633" y="12" width="1294" height="998" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27308294" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27308294" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295838" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3295838" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33182332" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -293,7 +297,8 @@
     <MESSAGE value="Added skeleton of App to index.js" />
     <MESSAGE value="Updated App &amp; DrumPad in index.js" />
     <MESSAGE value="Updated index.js to user stories." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated index.js to user stories." />
+    <MESSAGE value="Updated user stories &amp; added css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated user stories &amp; added css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -569,36 +574,40 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        <state relative-caret-position="338">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="260">
           <caret line="19" column="39" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="127" column="41" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="41" />
+        <state relative-caret-position="413">
+          <caret line="145" column="27" lean-forward="true" selection-start-line="145" selection-start-column="27" selection-end-line="145" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="158">
+          <caret line="44" column="16" lean-forward="true" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
         </state>
       </provider>
     </entry>
