@@ -125,8 +125,7 @@ class App extends React.Component {
     render() {
         return (
             <div id='drum-machine'>
-                <div className='padWrapper'>
-                    <DrumPad updateDisplay={this.displayClipName}/>
+                <div className='container'>
                     <p id="display">
                         {this.state.display}
                     </p>
